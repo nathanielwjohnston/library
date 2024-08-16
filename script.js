@@ -8,5 +8,10 @@ function Book(title, author, numOfPages, readBook) {
 }
 
 function addBookToLibrary(book) {
-  
+  if (!myLibrary.includes(book)) {
+    myLibrary.push(book);
+  }
 }
+
+const book1 = new Book("Eragon", "Christopher Paolini", 544, true);
+const book2 = new Book("Atomic Habits", "James Clear", 320, true);
