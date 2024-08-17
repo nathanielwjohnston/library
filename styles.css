@@ -22,3 +22,40 @@
   p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
   }
+
+  body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 5fr;
+    height: 100vh;
+  }
+
+  /* ==========================================================================
+   Header 
+   ========================================================================== */
+
+  .header {
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-content: center;
+  }
+
+  .header h1 {
+    text-align: center;
+  }
+
+  .header .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+   /* ==========================================================================
+   Main 
+   ========================================================================== */
+
+   .main {
+    border: 1px solid;
+   }
