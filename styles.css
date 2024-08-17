@@ -58,4 +58,10 @@
 
    .main {
     border: 1px solid;
+    overflow-y: visible;
+   }
+   
+   .books-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
    }
