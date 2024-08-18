@@ -1,4 +1,13 @@
-const myLibrary = [];
+const book1 = new Book("Eragon", "Christopher Paolini", 544, true);
+const book2 = new Book("Atomic Habits", "James Clear", 320, true);
+
+const myLibrary = [book1, book2, book1, book2, book1, book2, book1, book2, book1, book2,
+  book1, book2, book1, book2, book1, book2, book1, book2, book1, book2,
+  book1, book2, book1, book2, book1, book2, book1, book2, book1, book2,
+  book1, book2, book1, book2, book1, book2, book1, book2, book1, book2,
+  book1, book2, book1, book2, book1, book2, book1, book2, book1, book2,
+  book1, book2, book1, book2, book1, book2, book1, book2, book1, book2
+];
 
 function Book(title, author, numOfPages, readBook) {
   this.title = title;
@@ -16,18 +25,23 @@ function addBookToLibrary(book) {
 function displayLibrary() {
   myLibrary.forEach(book => {
     let newDiv = document.createElement("Div");
+    newDiv.classList.add("book-card")
 
     let title = document.createElement("H3");
     title.appendChild(document.createTextNode(book.title));
+    title.classList.add("book-title");
 
     let author = document.createElement("Div");
     author.appendChild(document.createTextNode(book.author));
+    author.classList.add("book-author");
 
     let numOfPages = document.createElement("Div");
-    numOfPages.appendChild(document.createTextNode(book.numOfPages)) 
+    numOfPages.appendChild(document.createTextNode(book.numOfPages)); 
+    numOfPages.classList.add("book-page-numbers");
 
     let readBook = document.createElement("INPUT");
     readBook.setAttribute("type", "radio");
+    readBook.classList.add("book-read-check");
     
     if (book.readBook) {
       readBook.checked = true;
@@ -47,5 +61,4 @@ function displayLibrary() {
   })
 }
 
-const book1 = new Book("Eragon", "Christopher Paolini", 544, true);
-const book2 = new Book("Atomic Habits", "James Clear", 320, true);
+displayLibrary();

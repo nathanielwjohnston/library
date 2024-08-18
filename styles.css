@@ -26,8 +26,9 @@
   body {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 5fr;
+    grid-template-rows: 12% 88%;
     height: 100vh;
+    overflow: hidden;
   }
 
   /* ==========================================================================
@@ -58,10 +59,20 @@
 
    .main {
     border: 1px solid;
-    overflow-y: visible;
+    overflow-y: auto;
    }
    
    .books-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    margin: 2em;
+    padding: 2em;
+    gap: 2em;
+   }
+
+   .book-card {
+    border: 1px solid;
+    display: grid;
+    grid-template-rows: 1fr repeat(3, 0.6fr);
+    text-align: center;
    }
