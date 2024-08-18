@@ -20,9 +20,15 @@ function addBookToLibrary(book) {
   if (!myLibrary.includes(book)) {
     myLibrary.push(book);
   }
+
+  // updates page with new book
+  displayLibrary();
 }
 
 function displayLibrary() {
+  const booksContainer = document.querySelector(".books-container");
+  booksContainer.replaceChildren();
+
   myLibrary.forEach(book => {
     let newDiv = document.createElement("Div");
     newDiv.classList.add("book-card")
@@ -73,6 +79,24 @@ closeModalButton.addEventListener("click", () => {
   if (modal.hasAttribute("open")) {
     modal.close();
   }
+})
+
+const formSubmitButton = document.querySelector(".submit-form-button");
+
+formSubmitButton.addEventListener("click", e => {
+  e.preventDefault();
+  if (modal.hasAttribute("open")) {
+    modal.close();
+  }
+  const formElements = document.querySelector(".new-book-form").elements;
+  addBookToLibrary(
+    new Book(
+      formElements["book-title-input"].value,
+      formElements["book-author-input"].value,
+      formElements["book-number-of-pages-input"].value,
+      formElements["book-read-check-input"].value
+    )
+  );
 })
 
 displayLibrary();
