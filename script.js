@@ -61,4 +61,18 @@ function displayLibrary() {
   })
 }
 
+const newBookButton = document.querySelector(".new-book-button");
+const modal = document.querySelector("#modal");
+const closeModalButton = document.querySelector(".close-modal-button");
+
+newBookButton.addEventListener("click", () => {
+  modal.showModal();
+})
+
+closeModalButton.addEventListener("click", () => {
+  if (modal.hasAttribute("open")) {
+    modal.close();
+  }
+})
+
 displayLibrary();
