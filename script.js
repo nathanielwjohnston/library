@@ -1,13 +1,4 @@
-const book1 = new Book("Eragon", "Christopher Paolini", 544, true);
-const book2 = new Book("Atomic Habits", "James Clear", 320, true);
-
-const myLibrary = [book1, book2, book1, book2, book1, book2, book1, book2, book1, book2,
-  book1, book2, book1, book2, book1, book2, book1, book2, book1, book2,
-  book1, book2, book1, book2, book1, book2, book1, book2, book1, book2,
-  book1, book2, book1, book2, book1, book2, book1, book2, book1, book2,
-  book1, book2, book1, book2, book1, book2, book1, book2, book1, book2,
-  book1, book2, book1, book2, book1, book2, book1, book2, book1, book2
-];
+const myLibrary = [];
 
 function Book(title, author, numOfPages, readBook) {
   this.title = title;
@@ -26,10 +17,11 @@ function addBookToLibrary(book) {
 }
 
 function displayLibrary() {
+  // removes everything from the display (to prevent duplication)
   const booksContainer = document.querySelector(".books-container");
   booksContainer.replaceChildren();
 
-  myLibrary.forEach(book => {
+  myLibrary.forEach((book, bookIndex) => {
     let newDiv = document.createElement("Div");
     newDiv.classList.add("book-card")
 
@@ -55,11 +47,27 @@ function displayLibrary() {
       readBook.checked = false;
     }
 
-    let divChildren = [title, author, numOfPages, readBook];
+    let removeBook = document.createElement("button");
+    removeBook.appendChild(document.createTextNode("Remove"));
+    removeBook.classList.add("remove-book-button");
+
+    removeBook.addEventListener("click", e => {
+      const bookCard = e.target.parentElement;
+      const libraryIndex = bookCard.dataset.libraryIndex;
+  
+      // remove book from library
+      myLibrary.splice(libraryIndex, 1);
+      
+      displayLibrary();
+    })
+
+    let divChildren = [title, author, numOfPages, readBook, removeBook];
 
     for (const child of divChildren) {
       newDiv.appendChild(child);
     }
+
+    newDiv.dataset.libraryIndex = bookIndex; 
 
     let bookContainer = document.querySelector(".books-container");
     bookContainer.appendChild(newDiv);
