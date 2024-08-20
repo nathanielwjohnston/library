@@ -7,6 +7,14 @@ function Book(title, author, numOfPages, readBook) {
   this.readBook = readBook;
 }
 
+Book.prototype.updateReadStatus = function() {
+  if (this.readBook === true) {
+    this.readBook = false;
+  } else {
+    this.readBook = true;
+  }
+}
+
 function addBookToLibrary(book) {
   if (!myLibrary.includes(book)) {
     myLibrary.push(book);
@@ -37,15 +45,19 @@ function displayLibrary() {
     numOfPages.appendChild(document.createTextNode(book.numOfPages)); 
     numOfPages.classList.add("book-page-numbers");
 
-    let readBook = document.createElement("INPUT");
-    readBook.setAttribute("type", "radio");
-    readBook.classList.add("book-read-check");
+    let readBook = document.createElement("button");
+    readBook.classList.add("change-read-status-button");
     
-    if (book.readBook) {
-      readBook.checked = true;
-    } else {
-      readBook.checked = false;
-    }
+    updateVisualReadStatus(book.readBook, readBook);
+
+    readBook.addEventListener("click", e => {
+      // changes read status to opposite
+      book.updateReadStatus();
+
+      e.target.replaceChildren();
+
+      updateVisualReadStatus(book.readBook, e.target);
+    })
 
     let removeBook = document.createElement("button");
     removeBook.appendChild(document.createTextNode("Remove"));
@@ -60,6 +72,16 @@ function displayLibrary() {
       
       displayLibrary();
     })
+
+    function updateVisualReadStatus(bookReadStatus, bookReadButton) {
+      if (bookReadStatus) {
+        bookReadButton.appendChild(document.createTextNode("Read"));
+        bookReadButton.classList.add("read-book");
+      } else {
+        bookReadButton.appendChild(document.createTextNode("Unread"));
+        bookReadButton.classList.add("unread-book");
+      }
+    }
 
     let divChildren = [title, author, numOfPages, readBook, removeBook];
 
@@ -102,7 +124,7 @@ formSubmitButton.addEventListener("click", e => {
       formElements["book-title-input"].value,
       formElements["book-author-input"].value,
       formElements["book-number-of-pages-input"].value,
-      formElements["book-read-check-input"].value
+      formElements["book-read-check-input"].checked
     )
   );
 })
