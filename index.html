@@ -18,13 +18,13 @@
     <dialog id="modal">
       <form class="new-book-form" action="">
         <label for="book-title-input">Title</label>
-        <input type="text" id="book-title-input" name="book-title-input">
+        <input type="text" id="book-title-input" name="book-title-input" required>
         <label for="book-author-input">Author</label>
-        <input type="text" id="book-author-input" name="book-author-input">
+        <input type="text" id="book-author-input" name="book-author-input" required>
         <label for="book-number-of-pages-input">Total Pages</label>
-        <input type="text" id="book-number-of-pages-input" name="book-number-of-pages-input">
+        <input type="tel" id="book-number-of-pages-input" name="book-number-of-pages-input" required>
         <label for="book-read-check-input">Read book?</label>
-        <input type="checkbox" name="book-read-check-input" id="book-read-check-input">
+        <input type="checkbox" name="book-read-check-input" id="book-read-check-input" required>
         <button type="submit" class="submit-form-button">Add Book</button>
       </form>
       <button class="close-modal-button">Close</button>
