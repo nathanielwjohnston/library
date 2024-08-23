@@ -23,34 +23,62 @@
     overflow-wrap: break-word;
   }
 
+/* ==========================================================================
+   General Styling 
+   ========================================================================== */
+
   body {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 12% 88%;
     height: 100vh;
     overflow: hidden;
+    /* Font Stack */
+    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman',
+    'URW Bookman L', 'Georgia Pro', Georgia, serif;
   }
 
-  /* ==========================================================================
+  :root {
+    --primary-colour: #57534e;
+    --light-primary-colour: #78716c; 
+    --dark-primary-color: #44403c;
+  }
+
+/* ==========================================================================
    Header 
    ========================================================================== */
 
   .header {
-    border: 1px solid;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-content: center;
+    background-color: var(--primary-colour);
   }
 
   .header h1 {
     text-align: center;
+    font-weight: 500;
+    font-size: 2.5em;
+    color: white;
   }
 
   .header .button-container {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .new-book-button {
+    padding: 0.8em 1.8em;
+    border: 2px outset var(--light-primary-colour);
+    
+  }
+
+  .new-book-button:hover {
+    cursor: grab;
+    color: rgb(75, 73, 73);
+    background-color: var(--dark-primary-color);
   }
 
    /* ==========================================================================
