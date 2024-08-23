@@ -97,6 +97,30 @@ function displayLibrary() {
   })
 }
 
+// Check book doesn't already exist in library
+function checkBookExists(newBookTitle) {
+  let matchingBooks = myLibrary.filter(book => {
+    return book.title.toLowerCase() === newBookTitle.toLowerCase();
+  })
+
+  if (matchingBooks.length === 0) {
+    return false;
+  }
+
+  return true;
+}
+
+function informUserOfDuplicateBook() {
+  // inform user of duplicate using ::before
+  let inputContainer = document.querySelector(".book-title-input-container");
+
+  // toggle won't work as the class may already have been added
+  // (which would remove it again)
+  if (!inputContainer.classList.contains("book-title-input-duplicate")) {
+    inputContainer.classList.add("book-title-input-duplicate");
+  }
+}
+
 const newBookButton = document.querySelector(".new-book-button");
 const modal = document.querySelector("#modal");
 const closeModalButton = document.querySelector(".close-modal-button");
@@ -115,18 +139,40 @@ const form = document.querySelector(".new-book-form");
 
 form.addEventListener("submit", e => {
   e.preventDefault();
-  if (modal.hasAttribute("open")) {
-    modal.close();
-  }
+
   const formElements = document.querySelector(".new-book-form").elements;
-  addBookToLibrary(
-    new Book(
-      formElements["book-title-input"].value,
-      formElements["book-author-input"].value,
-      formElements["book-number-of-pages-input"].value,
-      formElements["book-read-check-input"].checked
-    )
-  );
+  const newBookTitle = formElements["book-title-input"].value;
+
+  if (checkBookExists(newBookTitle)) {
+    informUserOfDuplicateBook();
+  } else {
+    if (modal.hasAttribute("open")) {
+      modal.close();
+    }
+    addBookToLibrary(
+      new Book(
+        formElements["book-title-input"].value,
+        formElements["book-author-input"].value,
+        formElements["book-number-of-pages-input"].value,
+        formElements["book-read-check-input"].checked
+      )
+    );
+  }
+})
+
+const bookTitleInput = document.querySelector(".new-book-form")
+.elements["book-title-input"];
+
+bookTitleInput.addEventListener("keyup", e => {
+  if (checkBookExists(e.target.value)) {
+    informUserOfDuplicateBook();
+  } else {
+    let inputContainer = document.querySelector(".book-title-input-container");
+
+    if (inputContainer.classList.contains("book-title-input-duplicate")) {
+      inputContainer.classList.remove("book-title-input-duplicate");
+    }
+  }
 })
 
 displayLibrary();

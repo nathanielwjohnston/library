@@ -82,4 +82,8 @@
     margin: auto;
    }
 
-   
+   /* form */ 
+
+   .book-title-input-duplicate::after {
+    content: "This book has already been added";
+   }
