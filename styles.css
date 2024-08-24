@@ -42,6 +42,10 @@
     --primary-colour: #57534e;
     --light-primary-colour: #78716c; 
     --dark-primary-color: #44403c;
+    --red: #dc2626;
+    --green: #16a34a;
+    --light-red: #ef4444;
+    --light-green: #22c55e;
   }
 
 /* ==========================================================================
@@ -72,12 +76,11 @@
   .new-book-button {
     padding: 0.8em 1.8em;
     border: 2px outset var(--light-primary-colour);
-    
   }
 
   .new-book-button:hover {
     cursor: grab;
-    color: rgb(75, 73, 73);
+    color: white;
     background-color: var(--dark-primary-color);
   }
 
@@ -86,8 +89,8 @@
    ========================================================================== */
 
    .main {
-    border: 1px solid;
     overflow-y: auto;
+    border-top: 1px solid white;
    }
    
    .books-container {
@@ -102,7 +105,46 @@
     border: 1px solid;
     display: grid;
     grid-template-rows: 1fr repeat(3, 0.6fr);
+    gap: 0.5em;
     text-align: center;
+    background-color: var(--primary-colour);
+    color: white;
+    padding: 1em;
+   }
+
+   .book-card button {
+    padding: 0.8em 1.8em;
+    border: 2px outset var(--light-primary-colour);
+   }
+
+   .book-card button.read-book {
+    background-color: var(--green);
+    border: 2px outset var(--light-green);
+    color: white;
+   }
+
+   .book-card button.unread-book {
+    background-color: var(--red);
+    border: 2px outset var(--light-red);
+    color: white;
+   }
+
+   .book-card button:hover {
+    cursor: grab;
+    color: white;
+   }
+
+   .book-card button.read-book:hover {
+    background-color: var(--light-green);
+   }
+
+   .book-card button.unread-book:hover {
+    background-color: var(--light-red);
+   }
+
+   .book-card button.remove-book-button:hover {
+    background-color: var(--red);
+    border: 2px outset var(--light-red);
    }
 
    #modal {

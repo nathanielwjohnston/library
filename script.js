@@ -1,4 +1,7 @@
-const myLibrary = [];
+book1 = new Book("title", "author", "456", true);
+book2 = new Book("title2", "author2", "789", false);
+
+const myLibrary = [book1, book2, book1, book2, book1, book2, book1, book2, book1, book2, ];
 
 function Book(title, author, numOfPages, readBook) {
   this.title = title;
@@ -55,6 +58,11 @@ function displayLibrary() {
       book.updateReadStatus();
 
       e.target.replaceChildren();
+      if (e.target.classList.contains("read-book")) {
+        e.target.classList.remove("read-book");
+      } else if (e.target.classList.contains("unread-book")) {
+        e.target.classList.remove("unread-book");
+      }
 
       updateVisualReadStatus(book.readBook, e.target);
     })
