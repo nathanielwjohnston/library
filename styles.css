@@ -1,160 +1,204 @@
 /* ==========================================================================
-   Reset 
-   ========================================================================== */
-   *, *::before, *::after {
-    box-sizing: border-box;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  input, button, textarea, select {
-    font: inherit;
-  }
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
+  Reset 
+  ========================================================================== */
+*, *::before, *::after {
+box-sizing: border-box;
+}
+* {
+margin: 0;
+padding: 0;
+}
+body {
+line-height: 1.5;
+-webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+display: block;
+max-width: 100%;
+}
+input, button, textarea, select {
+font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+overflow-wrap: break-word;
+}
 
 /* ==========================================================================
-   General Styling 
-   ========================================================================== */
+  General Styling 
+  ========================================================================== */
 
-  body {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 12% 88%;
-    height: 100vh;
-    overflow: hidden;
-    /* Font Stack */
-    font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman',
-    'URW Bookman L', 'Georgia Pro', Georgia, serif;
-  }
+body {
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 12% 88%;
+height: 100vh;
+overflow: hidden;
+/* Font Stack */
+font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman',
+'URW Bookman L', 'Georgia Pro', Georgia, serif;
+}
 
-  :root {
-    --primary-colour: #57534e;
-    --light-primary-colour: #78716c; 
-    --dark-primary-color: #44403c;
-    --red: #dc2626;
-    --green: #16a34a;
-    --light-red: #ef4444;
-    --light-green: #22c55e;
-  }
+:root {
+--primary-colour: #57534e;
+--light-primary-colour: #78716c; 
+--dark-primary-color: #44403c;
+--red: #dc2626;
+--green: #16a34a;
+--light-red: #ef4444;
+--light-green: #22c55e;
+}
 
 /* ==========================================================================
-   Header 
-   ========================================================================== */
+  Header 
+  ========================================================================== */
 
-  .header {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    align-content: center;
-    background-color: var(--primary-colour);
-  }
+.header {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+justify-content: center;
+align-content: center;
+background-color: var(--primary-colour);
+}
 
-  .header h1 {
-    text-align: center;
-    font-weight: 500;
-    font-size: 2.5em;
-    color: white;
-  }
+.header h1 {
+text-align: center;
+font-weight: 500;
+font-size: 2.5em;
+color: white;
+}
 
-  .header .button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.header .button-container {
+display: flex;
+justify-content: center;
+align-items: center;
+}
 
-  .new-book-button {
-    padding: 0.8em 1.8em;
-    border: 2px outset var(--light-primary-colour);
-  }
+.new-book-button {
+padding: 0.8em 1.8em;
+border: 2px outset var(--light-primary-colour);
+}
 
-  .new-book-button:hover {
-    cursor: grab;
-    color: white;
-    background-color: var(--dark-primary-color);
-  }
+.new-book-button:hover {
+cursor: grab;
+color: white;
+background-color: var(--dark-primary-color);
+}
 
-   /* ==========================================================================
-   Main 
-   ========================================================================== */
+/* ==========================================================================
+  Main 
+  ========================================================================== */
 
-   .main {
-    overflow-y: auto;
-    border-top: 1px solid white;
-   }
-   
-   .books-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin: 2em;
-    padding: 2em;
-    gap: 2em;
-   }
+.main {
+overflow-y: auto;
+border-top: 1px solid white;
+}
 
-   .book-card {
-    border: 1px solid var(--dark-primary-color);
-    display: grid;
-    grid-template-rows: 1fr repeat(3, 0.6fr);
-    gap: 0.5em;
-    text-align: center;
-    background-color: var(--primary-colour);
-    color: white;
-    padding: 1em;
-    box-shadow: 10px 10px 12px 3px rgba(120,113,108,0.6);
-   }
+.books-container {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+margin: 2em;
+padding: 2em;
+gap: 2em;
+}
 
-   .book-card button {
-    padding: 0.8em 1.8em;
-    border: 2px outset var(--light-primary-colour);
-   }
+.book-card {
+border: 1px solid var(--dark-primary-color);
+display: grid;
+grid-template-rows: 1fr repeat(3, 0.6fr);
+gap: 0.5em;
+text-align: center;
+background-color: var(--primary-colour);
+color: white;
+padding: 1em;
+box-shadow: 10px 10px 12px 3px rgba(120,113,108,0.6);
+}
 
-   .book-card button.read-book {
-    background-color: var(--green);
-    border: 2px outset var(--light-green);
-    color: white;
-   }
+.book-card button {
+padding: 0.8em 1.8em;
+border: 2px outset var(--light-primary-colour);
+}
 
-   .book-card button.unread-book {
-    background-color: var(--red);
-    border: 2px outset var(--light-red);
-    color: white;
-   }
+.book-card button.read-book {
+background-color: var(--green);
+border: 2px outset var(--light-green);
+color: white;
+}
 
-   .book-card button:hover {
-    cursor: grab;
-    color: white;
-   }
+.book-card button.unread-book {
+background-color: var(--red);
+border: 2px outset var(--light-red);
+color: white;
+}
 
-   .book-card button.read-book:hover {
-    background-color: var(--light-green);
-   }
+.book-card button:hover {
+cursor: grab;
+color: white;
+}
 
-   .book-card button.unread-book:hover {
-    background-color: var(--light-red);
-   }
+.book-card button.read-book:hover {
+background-color: var(--light-green);
+}
 
-   .book-card button.remove-book-button:hover {
-    background-color: var(--red);
-    border: 2px outset var(--light-red);
-   }
+.book-card button.unread-book:hover {
+background-color: var(--light-red);
+}
 
-   #modal {
-    inset: 0;
-    margin: auto;
-   }
+.book-card button.remove-book-button:hover {
+background-color: var(--red);
+border: 2px outset var(--light-red);
+}
 
-   /* form */ 
+#modal {
+inset: 0;
+margin: auto;
+}
 
-   .book-title-input-duplicate::after {
-    content: "This book has already been added";
-   }
+/* form modal */ 
+
+.book-title-input-duplicate::after {
+content: "This book has already been added";
+color: var(--red);
+}
+
+.book-title-input-duplicate {
+  max-width: 100%;
+}
+
+#modal {
+  height: 50%;
+  display: grid;
+  grid-column: 1fr;
+  padding: 1em;
+  border: 4px solid var(--light-primary-colour);
+}
+
+.new-book-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.new-book-form input:not(#book-read-check-input) {
+  width: 100%;
+}
+
+#book-read-check-input {
+  margin-left: 1em;
+}
+
+.modal-exit {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.modal-exit span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-exit button {
+  
+}
