@@ -155,21 +155,35 @@ margin: auto;
 
 /* form modal */ 
 
-.book-title-input-duplicate::after {
-content: "This book has already been added";
-color: var(--red);
+.book-title-input-duplicate label {
+  display: block;
+  width: 100%;
 }
 
-.book-title-input-duplicate {
-  max-width: 100%;
+.book-title-input-duplicate label::after {
+  content: "Already added";
+  color: var(--red);
+  float: right;
+}
+
+.book-title-input-duplicate input {
+  border-color: var(--red);
+}
+
+.book-title-input-duplicate input:focus-visible {
+  outline-color: var(--red);
 }
 
 #modal {
-  height: 50%;
-  display: grid;
-  grid-column: 1fr;
+  height: 45%;
   padding: 1em;
   border: 4px solid var(--light-primary-colour);
+}
+
+.form-elements-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
 }
 
 .new-book-form {
@@ -181,6 +195,7 @@ color: var(--red);
 
 .new-book-form input:not(#book-read-check-input) {
   width: 100%;
+  padding: 0.1em 0.2em;
 }
 
 #book-read-check-input {
@@ -200,5 +215,28 @@ color: var(--red);
 }
 
 .modal-exit button {
-  
+  width: 75%;
+  height: 45%;
+}
+
+.modal-exit .submit-form-button {
+  color: white;
+  background-color: var(--primary-colour);
+  border: 2px outset var(--light-primary-colour);
+}
+
+.modal-exit .close-modal-button {
+  background-color: var(--red);
+  border: 2px outset var(--light-red);
+  color: white
+}
+
+.modal-exit .submit-form-button:hover {
+  cursor: grab;
+  background-color: var(--light-primary-colour);
+}
+
+.modal-exit .close-modal-button:hover {
+  cursor: grab;
+  background-color: var(--light-red);
 }

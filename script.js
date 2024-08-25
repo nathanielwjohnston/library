@@ -140,6 +140,7 @@ newBookButton.addEventListener("click", () => {
 closeModalButton.addEventListener("click", () => {
   if (modal.hasAttribute("open")) {
     modal.close();
+    modal.querySelector("#new-book-form").reset();
   }
 })
 
@@ -165,6 +166,7 @@ form.addEventListener("submit", e => {
         formElements["book-read-check-input"].checked
       )
     );
+    modal.querySelector("#new-book-form").reset();
   }
 })
 

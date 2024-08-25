@@ -16,34 +16,36 @@
    </div>
    <div class="main">
     <dialog id="modal">
-      <form id="new-book-form" class="new-book-form" action="">
-        <span class="book-title-input-container">
-          <label for="book-title-input">Title</label>
-          <input type="text" id="book-title-input" name="book-title-input" required>
+      <div class="form-elements-container">
+        <form id="new-book-form" class="new-book-form" action="">
+          <span class="book-title-input-container">
+            <label for="book-title-input">Title</label>
+            <input type="text" id="book-title-input" name="book-title-input" required>
+          </span>
+          <span>
+            <label for="book-author-input">Author</label>
+            <input type="text" id="book-author-input" name="book-author-input" required>
+          </span>
+          <span>
+            <label for="book-number-of-pages-input">Total Pages</label>
+            <input type="tel" id="book-number-of-pages-input" name="book-number-of-pages-input" required>
+          </span>
+          <div class="book-read-input-container">
+            <label for="book-read-check-input">Read book?</label>
+            <input type="checkbox" name="book-read-check-input" id="book-read-check-input">
+          </div>
+        </form>
+        <span class="modal-exit">
+          <span>
+            <button type="submit" class="submit-form-button" form="new-book-form">
+              Add Book
+            </button>
+          </span>
+          <span>
+            <button class="close-modal-button">Close</button>
+          </span>
         </span>
-        <span>
-          <label for="book-author-input">Author</label>
-          <input type="text" id="book-author-input" name="book-author-input" required>
-        </span>
-        <span>
-          <label for="book-number-of-pages-input">Total Pages</label>
-          <input type="tel" id="book-number-of-pages-input" name="book-number-of-pages-input" required>
-        </span>
-        <div class="book-read-input-container">
-          <label for="book-read-check-input">Read book?</label>
-          <input type="checkbox" name="book-read-check-input" id="book-read-check-input">
-        </div>
-      </form>
-      <span class="modal-exit">
-        <span>
-          <button type="submit" class="submit-form-button" form="new-book-form">
-            Add Book
-          </button>
-        </span>
-        <span>
-          <button class="close-modal-button">Close</button>
-        </span>
-      </span>
+      </div>
     </dialog>
     <div class="books-container">
     </div>
