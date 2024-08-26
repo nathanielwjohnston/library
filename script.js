@@ -1,7 +1,6 @@
-book1 = new Book("title", "author", "456", true);
-book2 = new Book("title2", "author2", "789", false);
+const myLibrary = [];
 
-const myLibrary = [book1, book2, book1, book2, book1, book2, book1, book2, book1, book2, ];
+/* Functions */
 
 function Book(title, author, numOfPages, readBook) {
   this.title = title;
@@ -81,16 +80,6 @@ function displayLibrary() {
       displayLibrary();
     })
 
-    function updateVisualReadStatus(bookReadStatus, bookReadButton) {
-      if (bookReadStatus) {
-        bookReadButton.appendChild(document.createTextNode("Read"));
-        bookReadButton.classList.add("read-book");
-      } else {
-        bookReadButton.appendChild(document.createTextNode("Unread"));
-        bookReadButton.classList.add("unread-book");
-      }
-    }
-
     let divChildren = [title, author, numOfPages, readBook, removeBook];
 
     for (const child of divChildren) {
@@ -103,6 +92,16 @@ function displayLibrary() {
     bookContainer.appendChild(newDiv);
 
   })
+}
+
+function updateVisualReadStatus(bookReadStatus, bookReadButton) {
+  if (bookReadStatus) {
+    bookReadButton.appendChild(document.createTextNode("Read"));
+    bookReadButton.classList.add("read-book");
+  } else {
+    bookReadButton.appendChild(document.createTextNode("Unread"));
+    bookReadButton.classList.add("unread-book");
+  }
 }
 
 // Check book doesn't already exist in library
@@ -129,13 +128,16 @@ function informUserOfDuplicateBook() {
   }
 }
 
+/* Event Listeners */
+
 const newBookButton = document.querySelector(".new-book-button");
 const modal = document.querySelector("#modal");
-const closeModalButton = document.querySelector(".close-modal-button");
 
 newBookButton.addEventListener("click", () => {
   modal.showModal();
 })
+
+const closeModalButton = document.querySelector(".close-modal-button");
 
 closeModalButton.addEventListener("click", () => {
   if (modal.hasAttribute("open")) {
@@ -184,5 +186,6 @@ bookTitleInput.addEventListener("keyup", e => {
     }
   }
 })
+
 
 displayLibrary();
