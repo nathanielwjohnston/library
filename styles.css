@@ -198,8 +198,8 @@ margin: auto;
   padding: 0.1em 0.2em;
 }
 
-#book-read-check-input {
-  margin-left: 1em;
+.book-read-input-container label {
+  display: flex;
 }
 
 .modal-exit {
