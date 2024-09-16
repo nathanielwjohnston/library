@@ -2,18 +2,20 @@ const myLibrary = [];
 
 /* Functions */
 
-function Book(title, author, numOfPages, readBook) {
-  this.title = title;
-  this.author = author;
-  this.numOfPages = numOfPages;
-  this.readBook = readBook;
-}
+class Book {
+  constructor(title, author, numOfPages, readBook) {
+    this.title = title;
+    this.author = author;
+    this.numOfPages = numOfPages;
+    this.readBook = readBook;
+  }
 
-Book.prototype.updateReadStatus = function() {
-  if (this.readBook === true) {
-    this.readBook = false;
-  } else {
-    this.readBook = true;
+  updateReadStatus() {
+    if (this.readBook === true) {
+      this.readBook = false;
+    } else {
+      this.readBook = true;
+    }
   }
 }
 
