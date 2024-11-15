@@ -174,6 +174,31 @@ form.addEventListener("submit", e => {
   }
 })
 
+const submitButton = document.querySelector(".submit-form-button")
+
+submitButton.addEventListener("click", () => {
+  const formElements = document.querySelector(".new-book-form").elements;
+
+  function checkMissingValue (element, message) {
+    if (element.validity.valueMissing) {
+      element.setCustomValidity(message);
+    } else {
+      element.setCustomValidity("");
+    }
+  }
+  
+  const elements = {
+    "book-title-input": "You must set a book title",
+    "book-author-input": "You must set a book author",
+    "book-number-of-pages-input": "You must set the number of pages the book has",
+  }
+
+  for (let element in elements) {
+    checkMissingValue(formElements[element], elements[element]);
+  }
+  
+})
+
 const bookTitleInput = document.querySelector(".new-book-form")
 .elements["book-title-input"];
 
